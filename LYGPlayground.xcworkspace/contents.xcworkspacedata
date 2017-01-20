@@ -11,10 +11,10 @@
       location = "container:Currying.playground">
    </FileRef>
    <FileRef
-      location = "group:Monad.playground">
+      location = "group:Generic.playground">
    </FileRef>
    <FileRef
-      location = "group:MyPlayground.playground">
+      location = "group:Monad.playground">
    </FileRef>
    <FileRef
       location = "group:OPP.playground">

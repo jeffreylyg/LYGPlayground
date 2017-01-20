@@ -2,7 +2,7 @@
 
 import UIKit
 
-protocol Bird: BooleanType {
+protocol Bird {
 	var name: String { get }
 	var canFly: Bool { get }
 }
@@ -11,10 +11,10 @@ protocol Flyable {
 	var airspeedVelocity: Double { get }
 }
 
-extension BooleanType where Self: Bird {
-	var boolValue: Bool {
-		return self.canFly
-	}
+extension Bird where Self: Flyable {
+    var canFly: Bool {
+        return true
+    }
 }
 
 struct FlappyBird: Bird, Flyable {
@@ -40,42 +40,37 @@ struct SwiftBird: Bird, Flyable {
 	var airspeedVelocity: Double { return 2000.0 }
 }
 
-extension Bird where Self: Flyable {
-	var canFly: Bool {
-		return true
-	}
-}
 
 enum UnladenSwallow: Bird, Flyable {
-	case African
-	case European
-	case Unknown
+	case african
+	case european
+	case unknown
 	
 	var name: String {
 		switch self {
-		case .African:
+		case .african:
 			return "Afican"
-		case .European:
+		case .european:
 			return "European"
-		case.Unknown:
+		case.unknown:
 			return "What do you mean? African or European?"
 		}
 	}
 	
 	var airspeedVelocity: Double {
 		switch self {
-		case .African:
+		case .african:
 			return 10.0
-		case .European:
+		case .european:
 			return 9.0
-		case .Unknown:
+		case .unknown:
 			fatalError("You are thrown from the bridge of death!")
 		}
 	}
 }
 
-extension CollectionType {
-	func skip(skip: Int) -> [Generator.Element] {
+extension Collection {
+	func skip(_ skip: Int) -> [Generator.Element] {
 		guard skip != 0 else { return [] }
 		
 		var index = self.startIndex
@@ -85,33 +80,28 @@ extension CollectionType {
 			if i % skip == 0 {
 				result.append(self[index])
 			}
-			index = index.successor()
-			i++
+			index = self.index(after: index)
+			i += 1
 		} while (index != self.endIndex)
 		
 		return result
 	}
 }
 
-let bunchaBirds: [Bird] =
-	[UnladenSwallow.African,
-	 UnladenSwallow.European,
-	 UnladenSwallow.Unknown,
-	 Penguin(name: "King Penguin"),
-	 SwiftBird(version: 2.0),
-	 FlappyBird(name: "Felipe", flappyAmplitude: 3.0, flappyFrequency: 20.0)]
+let bunchaBirds: [Bird] = [UnladenSwallow.african,
+                           UnladenSwallow.european,
+                           UnladenSwallow.unknown,
+                           Penguin(name: "King Penguin"),
+                           SwiftBird(version: 2.0),
+                           FlappyBird(name: "Felipe", flappyAmplitude: 3.0, flappyFrequency: 20.0)]
 
-bunchaBirds.skip(3)
+print(bunchaBirds.skip(3))
 
 
-if UnladenSwallow.African {
+if UnladenSwallow.african.canFly {
 	print("I can fly!")
 } else {
 	print("Guess I’ll just sit here :[")
-}
-
-for i in 1...5.predecessor() {
-	print(i)
 }
 
 
