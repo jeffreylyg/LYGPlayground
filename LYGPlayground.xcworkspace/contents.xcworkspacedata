@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:LeetCode">
+   </FileRef>
+   <FileRef
+      location = "group:AbstractFactory.playground">
+   </FileRef>
+   <FileRef
+      location = "container:Currying.playground">
+   </FileRef>
+   <FileRef
+      location = "group:Monad.playground">
+   </FileRef>
+   <FileRef
+      location = "group:MyPlayground.playground">
+   </FileRef>
+   <FileRef
+      location = "group:OPP.playground">
+   </FileRef>
+   <FileRef
+      location = "group:Stack.playground">
+   </FileRef>
+</Workspace>
