@@ -8,7 +8,7 @@ func decodeString(_ s: String) -> String {
 	var countStr = ""
 	var numStack: [Int] = []
 	var strStack: [String] = []
-	for ch in s.characters {
+	for ch in s {
 		switch ch {
 		case "0"..."9":
 			countStr += String(ch)
